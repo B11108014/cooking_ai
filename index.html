@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美食料理師</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>🥕 美食料理師</h1>
+  <p style="text-align: center;">輸入冰箱剩下的食材，看看你能做出什麼料理吧！</p>
+  <p style="text-align: center;">不知道要煮什麼，那就來一起挑戰看看吧！</p>
+
+  <div class="main-wrapper">
+    <button onclick="randomPick()" class="challenge-btn">🎲 隨機挑戰：今天吃什麼？</button>
+
+    <div id="random-ingredients" style="display: none;">
+      <h3>🎯 你的隨機食材：</h3>
+      <p id="random-result"></p>
+      <button onclick="generateWithRandom()" class="secondary-btn">👨‍🍳 你會怎麼做這道菜？</button>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-left: 100px;">
+      <p>📷上傳食材圖片：</p>
+      <input type="file" id="imageUpload" multiple accept="image/*" />
+    </div>
+
+    <div id="predicted-result" style="margin-top: 1rem;"></div>
+
+    <p>請輸入你冰箱裡的食材（用逗號分隔）：</p>
+    <input type="text" id="ingredient-input" placeholder="例如：番茄,蛋,牛奶" />
+    <br><br>
+    <button onclick="generateRecipe()">🔍 查看料理建議</button>
+
+    <div id="suggested-ingredients">
+      <p>🧾 可嘗試輸入的食材有：</p>
+      <p>番茄、蛋、牛奶、玉米、吐司、起司、馬鈴薯、胡蘿蔔...</p>
+    </div>
+
+    <div id="result-area" style="margin-top: 30px;"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.4/dist/teachablemachine-image.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
